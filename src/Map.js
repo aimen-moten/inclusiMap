@@ -103,12 +103,12 @@ function Map() {
          
          {activeMarker == location.id && 
             <InfoWindow>
-            <div>
-              <h2>{location.locationname}</h2>
-              <i>{location.locationaddress}</i> <br></br>
-              <b>{location.wheelchair}</b> <br></br>
-              <b>{location.parking}</b><br></br>
-              <p>{"Number: " + location.number}</p>
+            <div className="text-oliveGreen p-2 text-left text-base">
+              <h2 className="text-lg font-bold">{location.locationname}</h2>
+              <i className=" p-2">{location.locationaddress}</i> <br></br>
+              <b className="p-2">{location.wheelchair}</b> <br></br>
+              <b className="p-2">{location.parking}</b><br></br>
+              <p>{"Contact Number: (+1) " + location.number}</p>
             </div>
             </InfoWindow>
           }
