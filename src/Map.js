@@ -1,13 +1,9 @@
-import React, { Component, useState, useEffect } from "react";
-import { auth, db, storage } from "./firebase";
+import React, { useState, useEffect } from "react";
+import {  db } from "./firebase";
 import { query, collection, where, getDocs, addDoc  } from "firebase/firestore";
-import { async } from "@firebase/util";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, useLocation } from "react-router-dom";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { Marker,InfoWindow } from '@react-google-maps/api';
-import Geocode from "react-geocode";
-import { inclusiMapLogo } from './assets'
+import { mapmarker } from './assets'
 
 
 function Map() {
@@ -88,7 +84,7 @@ function Map() {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={10}
+          zoom={30}
         >
 
       {locations.map((location) => (
@@ -96,6 +92,7 @@ function Map() {
           key={location.id}
           // icon= {inclusiMapLogo}
           position={getPosition(location)}
+          icon= {mapmarker}
           onClick={() => setActiveMarker(location.id)}
         >
          
@@ -108,7 +105,7 @@ function Map() {
               <i className=" p-2">{location.locationaddress}</i> <br></br>
               <b className="p-2">{location.wheelchair}</b> <br></br>
               <b className="p-2">{location.parking}</b><br></br>
-              <p>{"Contact Number: (+1) " + location.number}</p>
+              <p>{"Contact Number: (+1) " + location.contact}</p>
             </div>
             </InfoWindow>
           }
