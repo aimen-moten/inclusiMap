@@ -84,13 +84,13 @@ function Map() {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={30}
+          zoom={12}
         >
 
       {locations.map((location) => (
         <Marker
           key={location.id}
-          // icon= {inclusiMapLogo}
+          icon= {mapmarker}
           position={getPosition(location)}
           icon= {mapmarker}
           onClick={() => setActiveMarker(location.id)}
